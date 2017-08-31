@@ -39,14 +39,19 @@ describe("Store", function() {
   it("list inventory", function() {
     store1.addRecord(record1);
     store1.addRecord(record2);
-    assert.deepEqual(store1.listInventory(), [record1, record2])
+    assert.deepstrictEqual(store1.listInventory(), [record1, record2])
   }),
 
   it("sell record and balance rise", function(){
+    store1.addRecord(record1);
     store1.sell(record1);
     assert.strictEqual(store1.inventory.length, 0);
     assert.strictEqual(store1.balance, 100);
   })
+
+
+
+
 
 
 

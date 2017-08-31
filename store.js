@@ -14,16 +14,17 @@ Store.prototype = {
 
   listInventory: function() {
     return this.inventory;
-  }
+  },
 
   sell: function(recordForSale) {
-    inventory.forEach(function(record){
+    this.inventory.forEach(function(record){
       if (record = recordForSale) {
         this.balance += record.price;
-        
+        var recordToBeRevomed = this.inventory.indexOf(record);
+        this.inventory.splice(recordToBeRevomed, 1);
       }
 
-    })
+    }.bind(this))
   }
 
 
